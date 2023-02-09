@@ -1,0 +1,12 @@
+package pg.com.roughTest;
+
+import java.util.Comparator;
+
+public class EmployeeCompatator implements Comparator<Employee>{
+
+	@Override
+	public int compare(Employee o1, Employee o2) {
+		return 0;
+	}
+
+}
