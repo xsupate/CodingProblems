@@ -1,5 +1,7 @@
 package pg.com.dsa.dp;
 
+// https://www.youtube.com/watch?v=bUSaenttI24
+	
 public class KanpSack01DPSolution {
 	public static void main(String[] args) {
 		int val[] = new int[] { 60, 100, 120 };

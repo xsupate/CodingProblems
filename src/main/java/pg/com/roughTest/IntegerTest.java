@@ -1,5 +1,8 @@
 package pg.com.roughTest;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class IntegerTest {
 
 	public static void main(String[] args) {
@@ -10,5 +13,8 @@ public class IntegerTest {
 		}else {
 			System.out.println("Both i1 and i1 are not equal");
 		}
+		
+		List<String> list = Arrays.asList("Sunil", "Kumar", "Patel");
+		System.out.println("Value of list " + list);
 	}
 }
