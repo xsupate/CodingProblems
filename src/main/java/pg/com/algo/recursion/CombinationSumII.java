@@ -1,4 +1,4 @@
-package pg.com.ds.arrays;
+package pg.com.algo.recursion;
 
 import java.util.ArrayList;
 import java.util.Arrays;
