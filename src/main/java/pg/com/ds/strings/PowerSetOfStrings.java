@@ -1,6 +1,7 @@
 package pg.com.ds.strings;
 
 public class PowerSetOfStrings {
+	static int i = 0;
 
 	public static void main(String[] args) {
 		String str = "abc";
@@ -14,7 +15,7 @@ public class PowerSetOfStrings {
 
 	private static void printPowerSet(String str, int i, String temp) {
 		if(i == str.length()) {
-			System.out.print(temp + " ");
+			System.out.print("{" + temp + "}" + " ");
 		}
 		
 		if(i >= str.length())
@@ -25,30 +26,27 @@ public class PowerSetOfStrings {
 	}
 	
 	public static void permutation(String str) {
-		permutation(str, 0, str.length()-1);
+		permutation(str, 0, str.length());
 	}
 
 	private static void permutation(String str, int l, int r) {
-		if(l == r) {
+		if(l == r-1) {
 			System.out.print(str + " ");
-			return;
-		}
-		
-		for(int i = l; i <= r; i++) {
-			str = swap(str, i,l);
-			permutation(str, i+1, r);
-			str = swap(str, i,l);
+		}else {
+			for(int i = l; i < r; i++) {
+				str = swapString(str,l, i);
+				permutation(str, l+1, r);
+				str = swapString(str,l, i);
+			}
 		}
 	}
 
-	private static String swap(String str, int i, int j) {
-		char[] c = str.toCharArray();
-
-		// Replace with a "swap" function, if desired:
-		char temp = c[0];
-		c[0] = c[1];
-		c[1] = temp;
-
-		return new String(c);
+	public static String swapString(String a, int i, int j) {
+		char[] b = a.toCharArray();
+		char ch;
+		ch = b[i];
+		b[i] = b[j];
+		b[j] = ch;
+		return String.valueOf(b);
 	}
 }

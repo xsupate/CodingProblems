@@ -10,7 +10,12 @@ class Test
 public class Main {
 	public static void main(String[] args) 
     { 
-       System.out.println("Is buddyStrings : " + thirdMax(new int[] {2,2,3,1}));
+       //System.out.println("Is buddyStrings : " + thirdMax(new int[] {2,2,3,1}));
+		
+		Integer newInt = new Integer(1);
+		if(newInt.equals(1)) {
+			System.out.println("newInt is equal to 1");
+		}
        
        System.out.println( "remainder " + (-13)%10);
     } 
