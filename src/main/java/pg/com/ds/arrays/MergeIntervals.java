@@ -20,6 +20,14 @@ public class MergeIntervals {
 		for(int[] interval : merge(intervals)) {
 			System.out.print("["+ interval[0] + " " + interval[1] +"] ");
 		}
+		
+		int[][] arr = {{1, 3}, {8, 10}, {2, 6}, {15, 18}};
+        List<List<Integer>> ans = mergeOverlappingIntervals(arr);
+        System.out.print("The merged intervals are: \n");
+        for (List<Integer> it : ans) {
+            System.out.print("[" + it.get(0) + ", " + it.get(1) + "] ");
+        }
+        System.out.println();
 	}
 	
 	public static int[][] merge(int[][] intervals) {
