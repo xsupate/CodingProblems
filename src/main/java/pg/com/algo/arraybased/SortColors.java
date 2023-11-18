@@ -3,11 +3,13 @@ package pg.com.algo.arraybased;
 public class SortColors {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		int nums[] = {2,1,0,0,2,2,1,0,0,1};
+		sortColors(nums);
+		for(int i : nums)
+			System.out.print(i+", ");
 	}
 
-	public void sortColors(int[] nums) {
+	public static void sortColors(int[] nums) {
         int zeroStart = 0, oneStart = 0, twoStart=nums.length-1;
         while(oneStart <= twoStart){
             if(nums[oneStart] == 0){
@@ -23,7 +25,7 @@ public class SortColors {
         }
     }
     
-    private void swap(int[] nums, int i, int j){
+    private static void swap(int[] nums, int i, int j){
         int temp = nums[i];
         nums[i] = nums[j];
         nums[j] = temp;

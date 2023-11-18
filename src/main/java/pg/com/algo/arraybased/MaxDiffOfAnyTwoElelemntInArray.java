@@ -1,7 +1,5 @@
 package pg.com.algo.arraybased;
 
-import java.util.stream.Stream;
-
 /**
  * Find the maximum difference of two elements of array, such that maximum elements should come after smaller element.
  * 
