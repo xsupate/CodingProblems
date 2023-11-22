@@ -2,7 +2,6 @@ package pg.com.ds.arrays;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Comparator;
 import java.util.List;
 
 /*
@@ -22,8 +21,11 @@ public class MergeIntervals {
 		}
 		
 		int[][] arr = {{1, 3}, {8, 10}, {2, 6}, {15, 18}};
-        List<List<Integer>> ans = mergeOverlappingIntervals(arr);
-        System.out.print("The merged intervals are: \n");
+        printIntervals(getMergedIntervals(arr));
+	}
+
+	private static void printIntervals(List<List<Integer>> ans) {
+		System.out.print("The merged intervals are: \n");
         for (List<Integer> it : ans) {
             System.out.print("[" + it.get(0) + ", " + it.get(1) + "] ");
         }
@@ -55,34 +57,24 @@ public class MergeIntervals {
        return res.toArray(new int[0][]);
     }
 	
-	public static List<List<Integer>> mergeOverlappingIntervals(int[][] arr) {
-        int n = arr.length; // size of the array
-        //sort the given intervals:
-        
-        Arrays.sort(arr, (a, b) -> a[0]- b[0]);
-       
-        /* This below commented code is equivalent to above line
-        Arrays.sort(arr, new Comparator<int[]>() {
-            public int compare(int[] a, int[] b) {
-                return a[0] - b[0];
-            }
-        }); */
-
-        List<List<Integer>> ans = new ArrayList<>();
-
-        for (int i = 0; i < n; i++) {
-            // if the current interval does not
-            // lie in the last interval:
-            if (ans.isEmpty() || arr[i][0] > ans.get(ans.size() - 1).get(1)) {
-                ans.add(Arrays.asList(arr[i][0], arr[i][1]));
-            }
-            // if the current interval
-            // lies in the last interval:
-            else {
-                ans.get(ans.size() - 1).set(1,
-                                            Math.max(ans.get(ans.size() - 1).get(1), arr[i][1]));
-            }
-        }
-        return ans;
-    }
+	public static List<List<Integer>> getMergedIntervals(int[][]  arr){
+		List<List<Integer>> result = new ArrayList<>();
+		Arrays.sort(arr, (a, b) -> a[0] - b[0]);
+		
+		int start = arr[0][0];
+		int end = arr[0][1];
+		result.add(Arrays.asList(start, end));
+		for(int[] curr : arr) {
+			if(curr[0] < end) {
+				end = Math.max(end, curr[1]);
+				result.get(result.size()-1).set(1, end);
+			}else {
+				start = curr[0];
+				end = curr[1];
+				result.add(Arrays.asList(start, end));
+			}
+		}
+		
+		return result;
+	}
 }

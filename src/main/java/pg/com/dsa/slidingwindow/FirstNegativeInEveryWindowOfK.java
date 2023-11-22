@@ -3,8 +3,6 @@ package pg.com.dsa.slidingwindow;
 import java.util.LinkedList;
 import java.util.Queue;
 
-import javax.swing.plaf.synth.SynthOptionPaneUI;
-
 public class FirstNegativeInEveryWindowOfK {
 
 	public static void main(String[] args) {

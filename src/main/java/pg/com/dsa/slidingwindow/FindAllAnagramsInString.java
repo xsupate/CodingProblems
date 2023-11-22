@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+//Given two strings s and p, return an array of all the start indices of p's anagrams in s. You may return the answer in any order.
+//https://leetcode.com/problems/find-all-anagrams-in-a-string/
+
 public class FindAllAnagramsInString {
 
 	public static void main(String[] args) {

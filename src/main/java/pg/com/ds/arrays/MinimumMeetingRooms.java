@@ -25,7 +25,7 @@ public class MinimumMeetingRooms {
 	public static int findMiniMeetingRooms(List<Interval> intervals) {
 		int roomCount = 0;
 		Collections.sort(intervals, (a, b) -> Integer.compare(a.start,b.start));
-		PriorityQueue<Integer> pq = new PriorityQueue<>();
+		PriorityQueue<Integer> pq = new PriorityQueue<>(); // by default min heap
 		for(Interval interval : intervals) {
 			if(!pq.isEmpty() && interval.start >= pq.peek()) {
 				pq.poll();
